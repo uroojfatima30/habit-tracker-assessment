@@ -1,0 +1,169 @@
+/* Core Styling & Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Header & Nav */
+header {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.week-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.current-week-display {
+    font-weight: 600;
+    color: #495057;
+    margin-top: 5px;
+}
+
+/* Form Styles */
+.habit-form-section {
+    margin-bottom: 30px;
+}
+
+#add-habit-form {
+    display: flex;
+    gap: 10px;
+}
+
+#habit-input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+}
+
+#habit-input:focus {
+    border-color: #007bff;
+}
+
+/* Empty State Judged Harshly! */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    background: #f8f9fa;
+    border: 2px dashed #ced4da;
+    border-radius: 8px;
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+/* Responsive Table Grid setup */
+.grid-scroll-wrapper {
+    overflow-x: auto; /* Handles 360px wide mobile view beautifully */
+    width: 100%;
+    margin-top: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+.tracker-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px; /* Forces stable column sizing */
+    text-align: left;
+}
+
+.tracker-table th, .tracker-table td {
+    padding: 14px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.tracker-table th {
+    background-color: #f1f3f5;
+    font-weight: 600;
+}
+
+/* Today's Column Highlight */
+.today-highlight {
+    background-color: #e8f4fd !important;
+    border-left: 2px solid #007bff;
+    border-right: 2px solid #007bff;
+}
+
+/* Checkbox Interactivity */
+.checkbox-cell {
+    text-align: center;
+}
+
+.habit-checkbox {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: #28a745; /* Clean green transition when checked */
+}
+
+/* Actions */
+.habit-name-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.delete-btn {
+    background-color: transparent;
+    color: #dc3545;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+}
+.delete-btn:hover {
+    background-color: #f8d7da;
+}
+
+.streak-badge {
+    background: #ffc107;
+    color: #212529;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
