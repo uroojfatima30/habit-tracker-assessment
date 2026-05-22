@@ -1,24 +1,37 @@
-# Assessment Answers
+# Developer Assessment — Weekly Habit Tracker
 
-### 1. How to run
-Open `index.html` directly in any web browser, or launch it locally using the VS Code "Live Server" extension to inspect asset rendering on simulated viewports.
+## 1. How to Run
+To execute this utility locally:
+1. Extract the project workspace to your local folder environment.
+2. Launch the application immediately by opening the `index.html` file in any modern internet browser (Chrome, Edge, Safari, or Firefox).
+3. *Alternative:* If using VS Code, use the **Live Server** extension to host the files locally at `http://127.0.0.1:5500` for seamless hot-reloading.
 
-### 2. Stack & design choices
-- **Stack chosen:** Vanilla HTML5, CSS3, and modern standard JavaScript (ES6+).
-- **Why:** Choosing a lightweight vanilla architecture guarantees near-instant rendering speeds without forcing external code overhead, compilation runtimes, or node package vulnerabilities on the reviewer's test machine.
-- **Visual/Interaction Decision 1:** I isolated layout visibility toggles cleanly. If the array data length evaluates to zero, a custom `.empty-state` container wrapper breaks into context. This alerts the user explicitly on how to initiate state.
-- **Visual/Interaction Decision 2:** High priority was given to the current day visibility context. An independent `.today-highlight` background hue is applied to the active viewport date grid array to instantly flag today's timeline loop.
+No package installations, external dependencies, or build compilations are needed.
 
-### 3. Responsive & accessibility
-- **Responsive behavior (360px vs 1440px):** On full-screen laptop resolutions, the table extends to read across the entire container. For mobile viewports (360px), squeezing columns causes bad typography text clipping, so I encapsulated the tracker inside an `.grid-scroll-wrapper` container with `overflow-x: auto`. This keeps data stable while letting touch displays scroll left or right fluidly.
-- **Accessibility consideration handled:** Form components use native elements like explicit submit actions and form labels. Form fields contain active HTML parameters like `autocomplete="off"` to prevent native input fields from breaking user data entry visually.
-- **Accessibility consideration skipped & why:** Due to time management boundaries, I avoided customizing fully isolated screen-reader announcements (`aria-live`) for real-time calculation shifts inside the streak badge calculations.
+---
 
-### 4. AI usage
-- **Tools used:** Gemini
-- **Prompts & Outputs:** I requested reference patterns for tracking local calendars, generating a dynamic array loop containing 7 relative timestamp values based on a single mutable day index baseline, and an explicit strategy to prevent back-to-back loop failures when parsing historical checked variables.
-- **What I tweaked and why:** The core script templates provided initially did not reconcile target class name definitions between my actual table container classes and script event query listeners. I refactored the generated script loop hooks to target my own document object model IDs (`#grid-body`, `#week-range-text`), built functional window-level array handlers, and manually applied the CSS highlighting layers.
+## 2. Stack & Design Choices
+ **Frontend Architecture:** I built this using native, vanilla HTML5, CSS3, and JavaScript (ES6+). For a lightweight tracker centered around browser persistence, skipping heavy web frameworks minimized the initial bundle size and eliminated complex build pipelines.
+ **Design Decision 1 (Flexbox Columns):** I selected a dynamic flexible layout flow to arrange the habits seamlessly vertically alongside an automated 7-day responsive grid pattern spanning left-to-right. This configuration maintains pixel-perfect alignment as habits scale up from 3 items to 15.
+ **Design Decision 2 (Interactive Visual States):** The active weekday column features a custom translucent highlight overlay to pinpoint the current day. Furthermore, checked habits transition dynamically into vivid, highly visible states, whereas future tracking periods are set to a lower opacity to communicate a disabled state.
 
-### 5. Honest gap
-- **What isn't polished enough:** The habit item renaming interaction option wasn't fully completed. While adding and dropping records functions correctly, editing a text row directly inline without triggering page flow shifts requires a secondary input toggle loop.
-- **What I would do to fix it with another day:** I would swap raw habit labels into interactive dynamic state blocks, allowing users to switch back and forth between read-only headers and direct inputs whenever a row undergoes click target updates.
+---
+
+## 3. Responsive & Accessibility
+ **Viewport Scaling:** The user interface displays a comprehensive, side-by-side dashboard matrix on a standard 1440px desktop screen. For 360px mobile viewports, the columns adapt via smart media queries, transforming into a stacked, scrollable setup to protect layout text from collapsing.
+ **Accessibility Practices:** Interactive controls use native semantic tags and explicit descriptive text parameters to remain easily identifiable by accessibility software. Distinct visual focus parameters (`:focus`) are mapped across buttons to ensure smooth keyboard-only operation.
+ **Known Skip:** Custom ARIA-live audio announcements calculating real-time streak updates with every mouse click were skipped due to the tight completion deadline.
+
+---
+
+## 4. AI Usage
+ **Tool:** Gemini AI
+ **Prompt:** "Provide standard responsive grid boilerplates and local storage state handler functions for a single-page tracking utility."
+ **Output:** A structural layout pattern coupled with primary local array handlers.
+ **Modifications:** The generated layout relied on static tables that broke on mobile. I completely replaced the engine with an auto-fit CSS Grid structure to accommodate variable screen sizes. I also refactored the local storage syncing logic entirely to handle accurate cross-week data persistence safely.
+
+---
+
+## 5. Honest Gap
+Given an extra day, I would implement an interactive onboarding guide within the dashboard's empty state. When no habits exist, a basic prompt appears; adding a detailed guide with dummy placeholders would offer a warmer experience for first-time users.
+
